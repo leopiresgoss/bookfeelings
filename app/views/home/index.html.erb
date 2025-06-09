@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Welcome to BookFeelings</h1>
+  
+  <% if user_signed_in? %>
+    <div>
+      <p>Welcome back, <%= current_user.name %>!</p>
+      <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-success' %>
+    </div>
+  <% end %>
+</div> 

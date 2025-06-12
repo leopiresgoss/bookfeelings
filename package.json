@@ -1,0 +1,22 @@
+{
+  "name": "bookfeelings",
+  "version": "1.0.0",
+  "description": "BookFeelings is a web application that allows users to share their feelings about books they have read.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.4.17",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leonardo Goss",
+  "license": "ISC"
+}

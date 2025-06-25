@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateUserBooks < ActiveRecord::Migration[7.1]
   def change
     create_table :user_books do |t|
@@ -7,6 +9,6 @@ class CreateUserBooks < ActiveRecord::Migration[7.1]
       t.timestamps
     end
 
-    add_index :user_books, [:user_id, :book_id], unique: true
+    add_index :user_books, %i[user_id book_id], unique: true
   end
-end 
+end

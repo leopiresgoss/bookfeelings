@@ -1,0 +1,58 @@
+<%= form_with model: @book, data: { controller: "book", book_target: "form" } do |form| %>
+  <div data-controller="book" class="relative w-full max-w-xl">
+    <!-- Hidden input to store selected book title -->
+    <%= form.hidden_field :key, data: { book_target: 'selectedBookKey' } %>
+    <%= form.hidden_field :title, data: { book_target: 'selectedBookTitle' } %>
+    <%= form.hidden_field :author, data: { book_target: 'selectedBookAuthor' } %>
+
+    <div class="flex gap-4 items-end">
+      <label for="book-search-select" class="flex-1">
+        <span class="text-sm font-medium text-gray-700 dark:text-white">Select a book to read</span>
+
+        <div class="relative">
+          <input
+            type="search"
+            id="book-search-select"
+            list="book-search-select-list"
+            placeholder="Search for a book..."
+            class="input w-full max-w-md"
+            data-book-target="input"
+            data-action="input->book#search focus->book#showDropdown blur->book#hideDropdownIfNeeded"
+            autocomplete="off"
+          />
+
+          <ul name="book-search-select" id="book-search-select-list" data-book-target="results" data-action 
+            class="absolute bg-gray-600 z-10 max-h-52 overflow-y-auto w-full"
+          >
+          </ul>
+        </div>
+      </label>
+
+      <button type="submit" class="btn btn-primary">Select Book</button>
+    </div>
+
+  </div>
+<% end %>
+
+<section id="user-book-list" class="mt-52">
+  <h2>My Book List</h2>
+  <div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100"></div>
+  <table class="table table-zebra">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Stars</th>
+      </tr>
+    </thead>
+    <tbody>   
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= book.title %></td>
+          <td><%= book.author %></td>
+          <td><%= book.stars %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
